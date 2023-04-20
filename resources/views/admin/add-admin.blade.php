@@ -1,6 +1,11 @@
 @extends('master')
 @section('content')
-
+    @isset($success)
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{$success}}
+        </div>
+    @endisset
     <div class="bg-admin">
         <div class="container">
             <div class="row justify-content-center">
@@ -11,7 +16,7 @@
                         </div>
                         <div class="col-lg-6 pl-md-5 form-container p-5 bg-white">
                             <h2 class="display-5 text-center mb-5"> افزودن ادمین </h2>
-                            <form action="{{route('register')}}" method="POST">
+                            <form action="{{route('addAdmin')}}" method="POST">
                                 @csrf
                                 <div class="form-group text-right">
                                     <label for="name">نام :</label>

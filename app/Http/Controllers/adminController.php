@@ -146,4 +146,29 @@ class adminController extends Controller
         return view('admin/add-admin' , ['success'=>'ادمین جدید با موفقیت اضافه شد']);
     }
 
+    //__________________________________________ Add category
+    function add_category(Request $req){
+        $req->validate([
+            'name'=>'required|unique:category',
+            'c_image'=>'required|image'
+        ]);
+
+        //save image
+        $file=$req->file('c_image');
+        $ctgname=$file->getClientOriginalName();
+        $dstPath=public_path()."/images/category";
+        $file->move($dstPath,$ctgname);
+
+        //Make Folder
+        $img_path=public_path()."/images/products/$req->category";
+        File::makeDirectory($img_path);
+
+        $newctg= new category;
+        $newctg->category=$req->name;
+        $newctg->image="$ctgname";
+        $newctg->save();
+
+        return view('admin/add-category' , ['success','دسته‌بندی جدید با موفقیت ثبت شد']);
+    }
+
 }

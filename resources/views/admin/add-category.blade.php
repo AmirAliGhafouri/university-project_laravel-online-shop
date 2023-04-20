@@ -1,5 +1,11 @@
 @extends('admin/master')
 @section('content')
+    @isset($success)
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{$success}}
+        </div>
+    @endisset
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
@@ -9,7 +15,7 @@
                     </div>
                     <div class="col-lg-6 pl-md-5 form-container p-5">
                         <h2 class="display-5 text-center mb-5">افزودن دسته‌بندی جدید</h2>
-                        <form action="#" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('addCategory')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group text-right">
                                 <label for="name">نام دسته‌بندی </label>
@@ -23,8 +29,8 @@
 
                             <div class="form-group text-right">
                                 <label for="pic">تصویر دسته‌بندی </label>
-                                <input type="file" class="form-control-file @error('image') {{'is-invalid'}} @enderror" id="pic" name="image" accept="image/*">
-                                @error('image')
+                                <input type="file" class="form-control-file @error('c_image') {{'is-invalid'}} @enderror" id="pic" name="c_image" accept="image/*">
+                                @error('c_image')
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     {{$message}}
                                 </div>
