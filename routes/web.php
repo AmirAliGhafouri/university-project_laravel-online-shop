@@ -36,7 +36,24 @@ Route::group(['middleware'=>'user.error'],function (){
 
 //_______________________________ Logged users
 Route::group(['middleware'=>'user.auth'],function (){
-    Route::get('/logout',[userController::class,'logout'])->name('logout');
+    Route::controller(userController::class)->group(function(){
+        Route::get('/logout','logout')->name('logout');
+        Route::post('/user-edit','edit_user_info')->name('edit.userInfo');
+        Route::post('/password-edit','edit_password')->name('edit.password');      
+    });
+    Route::controller(productController::class)->group(function(){
+        Route::get('/addcart/{id}','add_cart')->name('add.cart');
+        Route::get('/cartlist','cart_list')->name('cartList');
+        Route::get('/cart-remove/{id}','cart_remove')->name('cart.remove');
+        Route::get('/order-place','order_place')->name('order.view');
+        Route::get('/order-post-cost','order_post_cost');
+        Route::post('/order','order')->name('order');
+        Route::get('/order-list/{orderCode}','order_list')->name('order.list');
+        Route::get('/user-panel','user_panel')->name('user.panel');
+        Route::get('/product-rate','rate_products')->name('rate.product');
+    });
+    
+  /*   Route::get('/logout',[userController::class,'logout'])->name('logout');
     Route::get('/addcart/{id}',[productController::class,'add_cart'])->name('add.cart');
     Route::get('/cartlist',[productController::class,'cart_list'])->name('cartList');
     Route::get('/cart-remove/{id}',[productController::class,'cart_remove'])->name('cart.remove');
@@ -47,33 +64,36 @@ Route::group(['middleware'=>'user.auth'],function (){
     Route::get('/user-panel',[productController::class,'user_panel'])->name('user.panel');
     Route::post('/user-edit',[userController::class,'edit_user_info'])->name('edit.userInfo');
     Route::post('/password-edit',[userController::class,'edit_password'])->name('edit.password');
-    Route::get('/product-rate',[productController::class,'rate_products'])->name('rate.product');
+    Route::get('/product-rate',[productController::class,'rate_products'])->name('rate.product'); */
 });
 
 //_______________________________ Admin
 Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
-    Route::get('/admin-panel',[adminController::class,'admin_panel'])->name('admin.panel');
+    Route::controller(adminController::class)->group(function(){
 
-    Route::get('/product-management',[adminController::class,'product_management'])->name('product.management');
-    Route::get('/product-control',[adminController::class,'product_control']);
-    Route::get('/edit-product/{id}',[adminController::class,'edit_product_view'])->name('edit.view');
-    Route::post('/edit-product/{id}',[adminController::class,'edit_product'])->name('editProduct');
-    Route::get('/remove-product/{id}',[adminController::class,'remove_product'])->name('remove.product');
+        Route::get('/admin-panel','admin_panel')->name('admin.panel');
 
-    Route::get('/add-product',[adminController::class,'add_product_view'])->name('addProduct.view');
-    Route::post('/add-product',[adminController::class,'add_product'])->name('addProduct');
+        Route::get('/product-management','product_management')->name('product.management');
+        Route::get('/product-control','product_control');
+        Route::get('/edit-product/{id}','edit_product_view')->name('edit.view');
+        Route::post('/edit-product/{id}','edit_product')->name('editProduct');
+        Route::get('/remove-product/{id}','remove_product')->name('remove.product');
+
+        Route::get('/add-product','add_product_view')->name('addProduct.view');
+        Route::post('/add-product','add_product')->name('addProduct');
+
+        Route::post('/add-category','add_category')->name('addCategory');
+
+        Route::post('/add-admin','add_admin')->name('addAdmin');
+
+        Route::get('/delivery','delivery')->name('delivery');
+        Route::post('/delivery-cost','delivery_cost')->name('delivery.cost');
+
+        Route::get('/users','users')->name('userController.view');
+    });
 
     Route::get('/category',function(){return view('admin/add-category');})->name('addCategory.view');
-    Route::post('/add-category',[adminController::class,'add_category'])->name('addCategory');
-
     Route::get('/add-admin',function(){return view('admin/add-admin');})->name('addAdmin.view');
-    Route::post('/add-admin',[adminController::class,'add_admin'])->name('addAdmin');// ?????
-
-    Route::get('/delivery',[adminController::class,'delivery'])->name('delivery');
-    Route::post('/delivery-cost',[adminController::class,'delivery_cost'])->name('delivery.cost');
-
-    Route::get('/users',[adminController::class,'users'])->name('userController.view');
-
 
 });
 
