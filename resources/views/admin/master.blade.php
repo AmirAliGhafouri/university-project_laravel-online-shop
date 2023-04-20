@@ -19,7 +19,7 @@
 
 </head>
 <body>
-@include('header')
+@include('admin/header')
 
 @yield('content')
 
