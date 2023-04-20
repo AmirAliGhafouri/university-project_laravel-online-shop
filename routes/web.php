@@ -53,7 +53,12 @@ Route::group(['middleware'=>'user.auth'],function (){
 //_______________________________ Admin
 Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
     Route::get('/admin-panel',[adminController::class,'admin_panel'])->name('admin.panel');
+
+    Route::get('/product-management',[adminController::class,'product_management'])->name('product.management');
     Route::get('/product-control',[adminController::class,'product_control']);
+    Route::get('/edit-product/{id}',[adminController::class,'edit_product_view'])->name('edit.view');
+    Route::post('/edit-product/{id}',[adminController::class,'edit_product'])->name('editProduct');
+    Route::get('/remove-product/{id}',[adminController::class,'remove_product'])->name('remove.product');
 
     Route::get('/add-product',[adminController::class,'add_product_view'])->name('addProduct.view');
     Route::post('/add-product',[adminController::class,'add_product'])->name('addProduct');
@@ -69,7 +74,6 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
 
     Route::get('/users',[adminController::class,'users'])->name('userController.view');
 
-    Route::get('/product-management',[adminController::class,'product_management'])->name('product.management');
 
 });
 

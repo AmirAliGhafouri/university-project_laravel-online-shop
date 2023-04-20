@@ -10,6 +10,7 @@ use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
@@ -63,7 +64,7 @@ class adminController extends Controller
                                     </div>
                                     <div class="col-md-3 mt-1 d-flex justify-content-center align-items-center flex-column">
                                         <div>
-                                            <a class="btn btn-eshop" href="#">ویرایش</a>
+                                            <a class="btn btn-eshop" href="'.route("edit.view",$product->id).'">ویرایش</a>
                                         </div>
                                         <div class=" mt-4 ">
                                             <a class="btn btn-remove" href="#">حذف‌<i class="fas fa-trash-alt"></i></a>
@@ -76,6 +77,54 @@ class adminController extends Controller
            }
         }
         return $output;
+    }
+
+    //__________________________________________ Edit product 
+    function edit_product_view($id){
+        try{
+            $product=product::where('id',$id)->first();
+        }
+        catch(\Exception $exception){
+            abort(404);
+        }
+        $ctg=category::all();
+        return view('admin/edit-product',['product'=>$product , 'category' =>$ctg]);
+    }
+    function edit_product(Request $req , $id){
+        $req->validate([
+            'price'=>'numeric',
+            'image'=>'image'
+        ]); 
+
+        $newProduct= new product;
+        if($req->name)
+            product::where('id',$id)->update(['name'=>$req->name]); 
+        if($req->price) 
+            product::where('id',$id)->update(['price'=>$req->price]);
+        if($req->description) 
+            product::where('id',$id)->update(['description'=>$req->description]);
+        
+        product::where('id',$id)->update(['category'=>$req->category]);
+
+        if($req->file('image')){
+            $file=$req->file('image');
+            $productname=$file->getClientOriginalName();
+            $dstPath=public_path()."/images/products/$req->category";
+            $file->move($dstPath,$productname);
+        }
+
+        return redirect()->route('editProduct',['id'=>$id])->with('success','تغییرات با موفقیت اعمال شدند');
+    }
+
+    //__________________________________________ Remove product 
+    function remove_product($id){
+        try{
+            product::destroy($id);
+        }
+        catch(\Exception $exception){
+            abort(404);
+        }
+        return redirect()->route('product.management')->with('success','محصول مورد نظر با موفقیت حذف شد');
     }
 
     //__________________________________________Add New product

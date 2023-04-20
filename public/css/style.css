@@ -27,6 +27,29 @@ ul{
     z-index: 2;
 }
 
+/*******************************************************************************  Backgrounds & colors*/
+
+.bg-dark{
+    background: rgb(9 12 31) !important;
+}
+
+.bg-second{
+    background-color: #21bdd0;
+}
+
+.bg-third{
+    background: radial-gradient(#7136f0 , #21bdd0);
+}
+
+.bg-admin{
+    background-image: url("../images/admin/admin-background.jpg");
+    background-size: 500px;
+}
+
+.text-second{
+    color: #21bdd0;
+}
+
 /*******************************************************************************  LOGO */
 .site-logo{
     width: 170px;
@@ -38,11 +61,6 @@ ul{
 }
 
 /*******************************************************************************  header */
-
-.bg-dark{
-    background: rgb(9 12 31) !important;
-}
-
 .navbar-nav{
     text-align: center;
 }
@@ -291,9 +309,6 @@ ul{
 }
 
 /*******************************************************************************  User-Panel */
-.bg-second{
-    background-color: #21bdd0;
-}
 
 .brder{
     border-top: 2px solid rgb(9 12 31) ;
@@ -451,15 +466,7 @@ ul{
     border-radius: 10px 10px 0px 0px;
 }
 
-.bg-third{
-    background: radial-gradient(#7136f0 , #21bdd0);
-}
-
 /******************************************************************************** panel */
-.bg-admin{
-    background-image: url("../images/admin/scott-webb-UjupleczBOY-unsplash.jpg");
-    background-size: cover;
-}
 
 .panel-img{
     width: 230px;
@@ -480,23 +487,9 @@ ul{
 
 /******************************************************************************* SideBar */
 
-.side-bar > ul{
-    list-style-type: none;
-}
-.side-bar a{
-    color: #fff;
-}
-.side-bar a:hover{
-    color: #21bdd0;
-}
-.side-bar p{
-    font-size: 10px;
-    font-weight: bold;
-}
-.side-bar span{
-    font-size: 32px;
-}
 
-
-
+.edit-desc{
+    max-height: 70px;
+    overflow: auto;
+}
 

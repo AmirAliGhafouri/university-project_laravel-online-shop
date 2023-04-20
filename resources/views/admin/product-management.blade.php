@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="bg-admin py-5 ">
-    <h2 class="text-center mb-3">مدیریت محصولات</h2>
+    <h2 class="text-center bg-white w-75 shadow rounded mx-auto mb-3 py-3">مدیریت محصولات</h2>
     <section class=" product-control-container col-md-10 mx-auto p-0">
         <div class="product-control-search">
             <input type="search" placeholder="جستجو ..." class="form-control admin-product-search bg-dark text-white">
@@ -31,10 +31,10 @@
                                 </div>
                                 <div class="col-md-3 mt-1 d-flex justify-content-center align-items-center flex-column">
                                     <div>
-                                        <a class="btn btn-eshop" href="#">ویرایش</a>
+                                        <a class="btn btn-eshop" href="{{route('edit.view',['id'=>$product->id])}}">ویرایش</a>
                                     </div>
                                     <div class=" mt-4 ">
-                                        <a class="btn btn-remove" href="#">حذف‌<i class="fas fa-trash-alt"></i></a>
+                                        <a class="btn btn-remove" href="{{route('remove.product',['id'=>$product->id])}}">حذف‌<i class="fas fa-trash-alt"></i></a>
                                     </div>
                                 </div>
                             </div>

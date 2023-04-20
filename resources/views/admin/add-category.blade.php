@@ -6,6 +6,7 @@
             {{$success}}
         </div>
     @endisset
+    <div class="bg-admin">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
@@ -13,7 +14,7 @@
                     <div class="col-lg-6 d-flex justify-content-center align-items-center login-back">
                         <img class="img-fluid img-responsive rounded product-image login-img"  src='{{URL::asset("images/admin/category2.png")}}'>
                     </div>
-                    <div class="col-lg-6 pl-md-5 form-container p-5">
+                    <div class="col-lg-6 pl-md-5 form-container p-5 bg-white">
                         <h2 class="display-5 text-center mb-5">افزودن دسته‌بندی جدید</h2>
                         <form action="{{route('addCategory')}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -45,5 +46,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
