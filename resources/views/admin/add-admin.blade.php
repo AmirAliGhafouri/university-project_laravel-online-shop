@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin/master')
 @section('content')
     @isset($success)
         <div class="alert alert-success alert-dismissible">

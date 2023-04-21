@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin/master')
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center">
