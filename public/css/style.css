@@ -487,9 +487,13 @@ ul{
 
 /******************************************************************************* SideBar */
 
-
 .edit-desc{
     max-height: 70px;
     overflow: auto;
+}
+
+.username-prf{
+    width: 100px;
+    height: 100px;
 }
 
