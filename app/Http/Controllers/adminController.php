@@ -127,6 +127,47 @@ class adminController extends Controller
         return redirect()->route('product.management')->with('success','محصول مورد نظر با موفقیت حذف شد');
     }
 
+    //__________________________________________ Search product 
+    function search_product(Request $req){
+        $output="";
+        $products=product::where('name','like','%'.$req->search.'%')->get();
+        if(!$products->all()){
+            $output="<div class="."text-center".">محصولی یافت نشد!</div>";
+            return $output;
+        }
+        else{
+           foreach($products as $product){
+               $image=URL::asset("images/products/$product->category/$product->image");
+               $output.='
+               <div class="d-flex justify-content-center row my-3 ">
+                            <div class="col-md-10 shadow">
+                                <div class="row p-2 bg-light rounded">
+                                    <div class="col-md-4 mt-1">
+                                        <a href="/details/'.$product->id.'">
+                                            <img class="img-fluid rounded shadow"  src='.$image.'>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-5 mt-1 d-flex align-items-center justify-content-center">
+                                        <p class="form-center">'.$product->name.'</p>
+                                    </div>
+                                    <div class="col-md-3 mt-1 d-flex justify-content-center align-items-center flex-column">
+                                        <div>
+                                            <a class="btn btn-eshop" href="'.route("edit.view",$product->id).'">ویرایش</a>
+                                        </div>
+                                        <div class=" mt-4 ">
+                                            <a class="btn btn-remove" href="#">حذف‌<i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+               ';
+           }
+           return $output;
+        }
+        
+    }
+
     //__________________________________________Add New product
     function add_product_view(){
         $category=category::all();

@@ -78,6 +78,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
         Route::get('/edit-product/{id}','edit_product_view')->name('edit.view');
         Route::post('/edit-product/{id}','edit_product')->name('editProduct');
         Route::get('/remove-product/{id}','remove_product')->name('remove.product');
+        Route::get('/product-search','search_product');
 
         Route::get('/add-product','add_product_view')->name('addProduct.view');
         Route::post('/add-product','add_product')->name('addProduct');

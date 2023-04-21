@@ -5,7 +5,7 @@
     <h2 class="text-center bg-white w-75 shadow rounded mx-auto mb-3 py-3">مدیریت محصولات</h2>
     <section class=" product-control-container col-md-10 mx-auto p-0">
         <div class="product-control-search">
-            <input type="search" placeholder="جستجو ..." class="form-control admin-product-search bg-dark text-white">
+            <input type="search" id="search_inp" name="search" placeholder="جستجو ..." class="form-control admin-product-search bg-dark text-white">
         </div>
         <div class="d-flex justify-content-between">
             <div class="d-flex flex-column bg-dark text-white">
@@ -60,5 +60,17 @@
                 }
             });
         });
+
+        $('#search_inp').on('keyup',function(){
+        $value=$(this).val();
+        $.ajax({
+            type:'get',
+            url:"{{URL::to('admin/product-search')}}",
+            data:{'search':$value},
+            success: function (data){
+                $('#product_info_container').html(data);
+            }
+        });
+    });
     </script>
 @endsection
