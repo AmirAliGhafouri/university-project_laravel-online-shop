@@ -32,24 +32,24 @@
     <div class="d-flex justify-content-center">
         <div class="col-md-4 text-right mb-5">
             <h2 class="text-center my-5">افزودن نوع جدید پست</h2>
-            <form action="{{route('delivery.cost')}}" method="POST">
+            <form action="{{route('delivery.add')}}" method="POST">
                 @csrf
                 <div class="form-group row">
                     <div class="w-100">
-                        <label for="normal_post" class="col-sm-2 col-form-label" style="white-space: nowrap">نام</label>
-                        <input type="text" class="form-control" id="normal_post" name="normal">
+                        <label for="add_post_name" class="col-sm-2 col-form-label" style="white-space: nowrap">نام</label>
+                        <input type="text" class="form-control" id="add_post_name" name="name">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="w-100">
-                        <label for="express_post" class="col-sm-2 col-form-label" style="white-space: nowrap">پست سریع</label>
-                        <input type="text" class="form-control" id="express_post" placeholder="تومان" name="express_post">
+                        <label for="new_post_cost" class="col-sm-2 col-form-label" style="white-space: nowrap">قیمت</label>
+                        <input type="text" class="form-control" id="new_post_cost" placeholder="تومان" name="cost">
                     </div>
                 </div>
 
                 <div class="text-center my-5">
-                    <button type="submit" class="btn btn-eshop px-5">تغییر</button>
+                    <button type="submit" class="btn btn-eshop px-5">افزودن</button>
                 </div>
             </form>
         </div>

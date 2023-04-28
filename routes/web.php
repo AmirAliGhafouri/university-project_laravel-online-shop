@@ -76,6 +76,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
 
         Route::get('/delivery','delivery')->name('delivery');
         Route::post('/delivery-cost','delivery_cost')->name('delivery.cost');
+        Route::post('/delivery-add','delivery_add')->name('delivery.add');
+        Route::post('/delivery-remove','delivery_remove')->name('delivery.remove');
 
         Route::get('/users','users')->name('userController.view');
         Route::get('/users-info/{id}','users_info')->name('userInfo.view');
