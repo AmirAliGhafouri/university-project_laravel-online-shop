@@ -202,13 +202,12 @@ class adminController extends Controller
 
     //__________________________________________ Delivery  ???????????????????????
     function delivery(){
-        return view('admin/post');
+        $post=post::all();
+        return view('admin/post',['posts'=>$post]);
     }
     function delivery_cost(Request $req){
-        if($req->express_post)
-            post::where('post','پست سریع')->update(['cost'=>$req->express_post]);
-        if($req->normal_post)
-            post::where('post','پست معمولی')->update(['cost'=>$req->normal_post]);
+
+        post::where('post',$req->post_name)->update(['cost'=>$req->cost]);      
         return redirect()->route('admin.panel')->with('success',' ✅هزینه پست با موفقیت بروزرسانی شد');
     }
 
