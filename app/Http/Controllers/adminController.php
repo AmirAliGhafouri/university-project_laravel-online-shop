@@ -200,7 +200,7 @@ class adminController extends Controller
         return redirect()->route('admin.panel')->with('success',' ✅محصول جدید با موفقیت اضافه شد');
     }
 
-    //__________________________________________ Delivery  ???????????????????????
+    //__________________________________________ Delivery 
     function delivery(){
         $post=post::all();
         return view('admin/post',['posts'=>$post]);
@@ -225,6 +225,29 @@ class adminController extends Controller
     function users(){
         $users=User::all();
         return view('admin/users-management',['users'=>$users]);
+    }
+    function users_info($id){
+        try{
+            $user=User::findOrFail($id);
+        }
+        catch(\Exception $exception){
+            abort(404);
+        }
+        $orders= DB::table('orders')
+        ->where('user_id' , $id)
+        ->select('orderCode','created_at',DB::raw('count("orderCode") as occurences'))
+        ->groupBy('orderCode','created_at')
+        ->having('occurences', '>', 0)
+        ->get();
+        return view('admin/user-info',['user'=>$user , 'orders'=>$orders]);
+    }
+    static function order_group_list($order,$user_id){
+        $joined_order=DB::table('orders')
+        ->join('products' , 'orders.product_id' , '=' , 'products.id')
+        ->where(['orders.user_id'=>$user_id , 'orders.orderCode'=>$order])
+        ->select('products.*','orders.*')
+        ->get();
+        return $joined_order;
     }
 
     //__________________________________________ Add ADMIN

@@ -16,7 +16,7 @@
                             
                             <div class="col-md-2 mt-1 d-flex justify-content-center align-items-center flex-column">
                                 <div>
-                                    <a class="btn btn-eshop" href="{{route('userInfo.view',['id'=>$user->id])}}">ویرایش</a>
+                                    <a class="btn btn-eshop" href="{{route('userInfo.view',['id'=>$user->id])}}">اطلاعات </a>
                                 </div>
                                 <div class=" mt-4 ">
                                     <a class="btn btn-remove" href="{{route('user.remove',['id'=>$user->id])}}">حذف‌<i class="fas fa-trash-alt"></i></a>
