@@ -61,7 +61,7 @@
 
 <!-- categoris -->
 
-<h2 class="Display-2 text-center my-5">dfkjsdhksjhlkjsdhlfk</h2>
+<h2 class="Display-2 text-center my-5">دسته‌بندی‌ها</h2>
 <div class="container">
 
   <div class=" d-flex justify-content-center flex-wrap mb-3">

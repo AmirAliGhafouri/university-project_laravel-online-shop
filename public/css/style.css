@@ -50,6 +50,49 @@ ul{
     color: #21bdd0;
 }
 
+/*******************************************************************************  Buttons */
+
+.btn-eshop{
+    background-color:#7136f0;
+    color: #fff;
+}
+
+.btn-eshop:hover{
+    background-color:#fff;
+    color: #7136f0;
+    border: thin solid #7136f0;
+}
+/*****/
+.btn-alert{
+    background: linear-gradient(to top,#950000 , #ff4646);
+    border: none;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.btn-alert:hover{
+    color:#fff;
+    box-shadow: 0px 5px 8px 2px silver;
+}
+/*****/
+.btn-remove{
+    background: #dd0202;
+    /*border: none;*/
+    color: #fff;
+    transition: all 0.5s;
+    white-space: nowrap;
+}
+
+.btn-remove:hover{
+    background: #fff;
+    border: thin solid #950000 ;
+    color: #950000 ;
+}
+/*****/
+.btn-back{
+    background: linear-gradient(to bottom , rgb(9 12 31) , rgb(28, 37, 92));
+}
+
 /*******************************************************************************  LOGO */
 .site-logo{
     width: 170px;
@@ -256,17 +299,6 @@ ul{
     box-shadow: 0px 0px 5px 5px silver;
 }
 
-.btn-eshop{
-    background-color:#7136f0;
-    color: #fff;
-}
-
-.btn-eshop:hover{
-    background-color:#fff;
-    color: #7136f0;
-    border: thin solid #7136f0;
-}
-
 /******************************************************************************* product cards */
 
 .card-products{
@@ -285,18 +317,6 @@ ul{
 /*******************************************************************************  cartList */
 .cart-img{
     width: 350px;
-}
-
-.btn-alert{
-    background: linear-gradient(to top,#950000 , #ff4646);
-    border: none;
-    color: #fff;
-    transition: all 0.5s;
-}
-
-.btn-alert:hover{
-    color:#fff;
-    box-shadow: 0px 5px 8px 2px silver;
 }
 
 .alert-txt{
@@ -413,20 +433,6 @@ ul{
 .admin-panel-img{
     width: 100px;
     border-radius: 10px;
-}
-
-.btn-remove{
-    background: #dd0202;
-    /*border: none;*/
-    color: #fff;
-    transition: all 0.5s;
-    white-space: nowrap;
-}
-
-.btn-remove:hover{
-    background: #fff;
-    border: thin solid #950000 ;
-    color: #950000 ;
 }
 
 .product-control{

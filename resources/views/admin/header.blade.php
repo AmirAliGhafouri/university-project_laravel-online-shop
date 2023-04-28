@@ -23,10 +23,15 @@ use Illuminate\Support\Facades\Session;
       
      <!-------- Account button -------->
      <ul class="navbar-nav mr-auto">
-            <li class="nav-item">          
-                <a class="nav-link account mx-2 px-2" href="{{route('logout')}}">خروج <i class="fa-solid fa-right-from-bracket"></i></a>             
-            </li>
-        </ul>
+        <li class="nav-item">          
+            <a class="nav-link account mx-2 px-2" href="{{route('logout')}}">خروج <i class="fa-solid fa-right-from-bracket"></i></a>             
+        </li>
+    </ul>
+
+     <!-------- Back button -------->
+    <div class="text-right mr-2">
+        <a href="{{url()->previous()}}" class="btn btn-back text-white">بازگشت</a>
+    </div>
 
     <!-------- Navbar toggler -------->
     <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

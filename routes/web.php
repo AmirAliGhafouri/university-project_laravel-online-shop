@@ -52,19 +52,6 @@ Route::group(['middleware'=>'user.auth'],function (){
         Route::get('/user-panel','user_panel')->name('user.panel');
         Route::get('/product-rate','rate_products')->name('rate.product');
     });
-    
-  /*   Route::get('/logout',[userController::class,'logout'])->name('logout');
-    Route::get('/addcart/{id}',[productController::class,'add_cart'])->name('add.cart');
-    Route::get('/cartlist',[productController::class,'cart_list'])->name('cartList');
-    Route::get('/cart-remove/{id}',[productController::class,'cart_remove'])->name('cart.remove');
-    Route::get('/order-place',[productController::class,'order_place'])->name('order.view');
-    Route::get('/order-post-cost',[productController::class,'order_post_cost']);
-    Route::post('/order',[productController::class,'order'])->name('order');
-    Route::get('/order-list/{orderCode}',[productController::class,'order_list'])->name('order.list');
-    Route::get('/user-panel',[productController::class,'user_panel'])->name('user.panel');
-    Route::post('/user-edit',[userController::class,'edit_user_info'])->name('edit.userInfo');
-    Route::post('/password-edit',[userController::class,'edit_password'])->name('edit.password');
-    Route::get('/product-rate',[productController::class,'rate_products'])->name('rate.product'); */
 });
 
 //_______________________________ Admin

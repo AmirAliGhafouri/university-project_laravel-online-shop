@@ -47,6 +47,10 @@ use Illuminate\Support\Facades\Session;
               @endif
             </li>
         </ul>
+
+        <div class="text-right mr-2">
+            <a href="{{url()->previous()}}" class="btn btn-back text-white">بازگشت</a>
+        </div>
     </div>
   </nav>
 
