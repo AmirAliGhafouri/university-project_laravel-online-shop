@@ -216,6 +216,10 @@ class adminController extends Controller
         $newDelivery->save();
         return redirect()->route('admin.panel')->with('success','  ✅پست با موفقیت ثبت شد');
     }
+    function delivery_remove(Request $req){
+        post::where('post',$req->post_name)->delete();
+        return redirect()->route('admin.panel')->with('success','  ✅پست با موفقیت حذف شد');
+    }
 
     //__________________________________________ User Controller
     function users(){
