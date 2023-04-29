@@ -67,7 +67,7 @@ class adminController extends Controller
                                             <a class="btn btn-eshop" href="'.route("edit.view",$product->id).'">ویرایش</a>
                                         </div>
                                         <div class=" mt-4 ">
-                                            <a class="btn btn-remove" href="#">حذف‌<i class="fas fa-trash-alt"></i></a>
+                                            <a class="btn btn-remove" href="'.route('remove.product',['id'=>$product->id]).'">حذف‌<i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -155,7 +155,7 @@ class adminController extends Controller
                                             <a class="btn btn-eshop" href="'.route("edit.view",$product->id).'">ویرایش</a>
                                         </div>
                                         <div class=" mt-4 ">
-                                            <a class="btn btn-remove" href="#">حذف‌<i class="fas fa-trash-alt"></i></a>
+                                            <a class="btn btn-remove" href="'.route('remove.product',['id'=>$product->id]).'">حذف‌<i class="fas fa-trash-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>
