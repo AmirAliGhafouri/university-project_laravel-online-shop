@@ -8,7 +8,7 @@ use App\Http\Controllers\adminController;
 
 <div class="bg-admin">
     <div class="container py-5">
-       <div class="bg-light py-5">
+       <div class="bg-second rounded py-5">
             <h2 class="text-center display-5 mb-5">مشخصات کاربر</h2>
             <table class="table text-center table-font">
                 <tr>

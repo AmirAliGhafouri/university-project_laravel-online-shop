@@ -24,7 +24,8 @@
                         <h4 class="mr-1">{{$product->price}}تومان</h4>
                     </div>
                     <div class=" mt-4 ">                      
-                        <a class="btn btn-alert" href="{{route('cart.remove',['id'=>$product->cart_id])}}">حذف‌از‌سبد‌خرید <i class="fas fa-trash-alt"></i></a>
+                        <!-- <a class="btn btn-alert" href="{{route('cart.remove',['id'=>$product->cart_id])}}">حذف‌از‌سبد‌خرید <i class="fas fa-trash-alt"></i></a> -->
+                        <div class="btn btn-alert" onclick='cart_remove("{{$product->cart_id}}")'>حذف‌از‌سبد‌خرید<i class="fas fa-trash-alt"></i></div>
                     </div>
                 </div>
             </div>

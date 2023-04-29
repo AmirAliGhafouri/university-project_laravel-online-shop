@@ -25,3 +25,10 @@ var swiper = new Swiper('.swiper-container', {
         }
     }
 });
+
+/* Remove product from cartList */
+function cart_remove(id){
+    let remove = confirm('آیا مطمئن هستید؟');
+    if(remove)
+        location.href="/cart-remove/"+id;
+}
