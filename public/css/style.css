@@ -282,6 +282,10 @@ ul{
     width: 250px;
 }
 
+.img-round{
+    border-radius:0.25rem 0.25rem 0 0 ;
+}
+
 /******************************************************************************* Forms */
 .form-back-ground{
     background-image: url('../images/backgrounds/shop_background.png');

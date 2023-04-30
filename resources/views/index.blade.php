@@ -45,33 +45,6 @@
         
     @endforeach
 
-    <!-- <div class="carousel-item active">
-        <div class="text-center carousel-background">
-            <img src="images/1.jpg" alt="Chicago"class="img-fluid mb-5 carousel-img">
-        </div>
-        <div class="carousel-caption mt-5">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
-        </div>
-    </div>
-    <div class="carousel-item">
-      <div class="text-center carousel-background" >
-        <img src="images/2.jpg" alt="Chicago" class="img-fluid mb-5 carousel-img">
-      </div>
-      <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-        <div class="text-center carousel-background" >
-            <img src="images/3.jpg" alt="Chicago" class="img-fluid mb-5 carousel-img">
-        </div>
-        <div class="carousel-caption">
-            <h3>New York</h3>
-            <p>We love the Big Apple!</p>
-        </div>
-    </div> -->
   </div>
   <a class="carousel-control-prev" href="#demo" data-slide="next">
     <i class="fas fa-chevron-circle-left crousel-arrow"></i>
@@ -109,14 +82,14 @@
 
 <section class="mx-2">
     <h2 class="text-center mt-5 mb-3">محبوب ترین ها </h2>
-    <div class="swiper mySwiper px-2">
+    <div class="swiper mySwiper p-2 bg-second rounded">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $rate_product_counter=0; @endphp
             @foreach($productByRate as $rate)
-                <div class="swiper-slide mb-5">
-                    <a href="{{route('product.details',['id'=>$rate->id])}}" class="card-txt ">
-                        <div class="card p-0 card-index">
-                            <img class="img-fluid" src='{{URL::asset("images/products/$rate->category/$rate->image")}}' alt="Card image" style="width:100%;">
+                <div class="swiper-slide mb-5 rounded">
+                    <a href="{{route('product.details',['id'=>$rate->id])}}" class="card-txt">
+                        <div class="card p-0 card-index border-0">
+                            <img class="img-fluid img-round" src='{{URL::asset("images/products/$rate->category/$rate->image")}}' alt="Card image" style="width:100%;">
                             <div class="text-center">
                                 <h4 class="my-2">{{$rate->name}}</h4>
                                 <div class="my-3">
@@ -142,13 +115,13 @@
 
             @endforeach
             <div class="swiper-slide mb-5">
-                <a href="{{route('most',['column'=>'rating'])}}" class="card-txt ">
+                <a href="{{route('most',['column'=>'rating'])}}" class="card-txt">
                     <div class="card p-0 card-index border-0">
-                        <div>
+                        <div class="bg-second">
                             <i class="fas fa-chevron-circle-left crousel-arrow"></i>
                         </div>
-                        <div class="text-center">
-                            <p class="badge text-dark">بیشتر</p>
+                        <div class="text-center bg-second">
+                            <p class="badge text-black">بیشتر</p>
                         </div>
                     </div>
                 </a>
@@ -163,14 +136,14 @@
 
 <section class="mx-2">
     <h2 class="text-center mt-5 mb-3">پر فروش ترین ها</h2>
-    <div class="swiper mySwiper px-2">
+    <div class="swiper mySwiper p-2 bg-second rounded">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $sell_product_counter=0; @endphp
             @foreach($productBySell as $sell)
-                <div class="swiper-slide mb-5">
+                <div class="swiper-slide mb-5 rounded">
                     <a href="{{route('product.details',['id'=>$sell->id])}}" class="card-txt ">
                         <div class="card p-0 card-index">
-                            <img class="img-fluid" src='{{URL::asset("images/products/$sell->category/$sell->image")}}' alt="Card image" style="width:100%;">
+                            <img class="img-fluid img-round" src='{{URL::asset("images/products/$sell->category/$sell->image")}}' alt="Card image" style="width:100%;">
                             <div class="text-center">
                                 <h4 class="my-2">{{$sell->name}}</h4>
                                 <div class="my-3">
@@ -198,11 +171,11 @@
             <div class="swiper-slide mb-5">
                 <a href="{{route('most',['column'=>'sale_quantity'])}}" class="card-txt ">
                     <div class="card p-0 card-index border-0">
-                        <div>
+                        <div class="bg-second">
                             <i class="fas fa-chevron-circle-left crousel-arrow"></i>
                         </div>
-                        <div class="text-center">
-                            <p class="badge text-dark">بیشتر</p>
+                        <div class="text-center bg-second">
+                            <p class="badge text-black">بیشتر</p>
                         </div>
                     </div>
                 </a>
@@ -217,14 +190,14 @@
 
 <section class="mx-2">
     <h2 class="text-center mt-5 mb-3">جدیدترین ها</h2>
-    <div class="swiper mySwiper px-2">
+    <div class="swiper mySwiper p-2 bg-second rounded">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $sell_product_counter=0; @endphp
             @foreach($productByTime as $time)
-                <div class="swiper-slide mb-5">
+                <div class="swiper-slide mb-5 rounded">
                     <a href="{{route('product.details',['id'=>$time->id])}}" class="card-txt ">
                         <div class="card p-0 card-index">
-                            <img class="img-fluid" src='{{URL::asset("images/products/$time->category/$time->image")}}' alt="Card image" style="width:100%;">
+                            <img class="img-fluid img-round" src='{{URL::asset("images/products/$time->category/$time->image")}}' alt="Card image" style="width:100%;">
                             <div class="text-center">
                                 <h4 class="my-2">{{$time->name}}</h4>
                                 <div class="my-3">
@@ -252,11 +225,11 @@
             <div class="swiper-slide mb-5">
                 <a href="{{route('most',['column'=>'created_at'])}}" class="card-txt ">
                     <div class="card p-0 card-index border-0">
-                        <div>
+                        <div class="bg-second">
                             <i class="fas fa-chevron-circle-left crousel-arrow"></i>
                         </div>
-                        <div class="text-center">
-                            <p class="badge text-dark">بیشتر</p>
+                        <div class="text-center bg-second">
+                            <p class="badge text-black">بیشتر</p>
                         </div>
                     </div>
                 </a>
