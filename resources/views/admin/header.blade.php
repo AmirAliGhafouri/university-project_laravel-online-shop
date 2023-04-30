@@ -28,11 +28,6 @@ use Illuminate\Support\Facades\Session;
         </li>
     </ul>
 
-     <!-------- Back button -------->
-    <div class="text-right mr-2">
-        <a href="{{url()->previous()}}" class="btn btn-back text-white">بازگشت</a>
-    </div>
-
     <!-------- Navbar toggler -------->
     <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars menu-icon"></i>
