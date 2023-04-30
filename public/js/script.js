@@ -32,3 +32,9 @@ function cart_remove(id){
     if(remove)
         location.href="/cart-remove/"+id;
 }
+
+function remove_product(id){
+    let remove = confirm('آیا مطمئن هستید؟');
+    if(remove)
+        location.href="/admin/remove-product/"+id;
+}

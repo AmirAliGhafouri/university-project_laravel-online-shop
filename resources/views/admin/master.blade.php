@@ -15,6 +15,7 @@
     <script src="{{URL::asset('boots/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{URL::asset('boots/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{URL::asset('icon/all.js')}}"></script>
+    <script src="{{URL::asset('js/script.js')}}"></script>
 
 
 </head>
