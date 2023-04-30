@@ -32,7 +32,7 @@ class productController extends Controller
         // products by category
         $category=category::all();
 
-        // products by rating
+        // products by rating 
        $this->product_rating_avg();
        $rate=product::all()->sortBy('rating')->reverse();
        $sell=product::all()->sortBy('sale_quantity')->reverse();

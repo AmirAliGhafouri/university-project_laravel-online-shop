@@ -23,7 +23,29 @@
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <?php
+        $count=0;
+    ?>
+    @foreach($productByTime as $item)
+        <div class="carousel-item @if($count==0){{'active'}}@endif">
+            <div class="text-center carousel-background">
+                <img src="images/products/{{$item->category}}/{{$item->image}}" alt="Chicago"class="img-fluid mb-5 carousel-img">
+            </div>
+            <div class="carousel-caption mt-5">
+                <h3>{{$item->name}}</h3>
+            </div>
+        </div>
+        @if($count>2)
+            @break
+        @else   
+            <?php
+                $count++;
+            ?>
+        @endif
+        
+    @endforeach
+
+    <!-- <div class="carousel-item active">
         <div class="text-center carousel-background">
             <img src="images/1.jpg" alt="Chicago"class="img-fluid mb-5 carousel-img">
         </div>
@@ -49,7 +71,7 @@
             <h3>New York</h3>
             <p>We love the Big Apple!</p>
         </div>
-    </div>
+    </div> -->
   </div>
   <a class="carousel-control-prev" href="#demo" data-slide="next">
     <i class="fas fa-chevron-circle-left crousel-arrow"></i>
