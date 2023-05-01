@@ -188,7 +188,7 @@
     </div>
 </section>
 
-<section class="mx-2">
+<section class="mx-2 mb-5">
     <h2 class="text-center mt-5 mb-3">جدیدترین ها</h2>
     <div class="swiper mySwiper p-2 bg-second rounded">
         <div class="swiper-wrapper d-flex align-items-center">
