@@ -173,7 +173,6 @@ class productController extends Controller
             $order=new order;
             $order->user_id=$cart['user_id'];
             $order->product_id=$cart['product_id'];
-            $order->status="در حال پردازش";
             $order->payment_method=$req->payment;
             $order->address=$req->address;
             $order->orderCode=$date.$order_code;

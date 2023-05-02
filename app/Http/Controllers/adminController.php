@@ -294,6 +294,12 @@ class adminController extends Controller
     }
 
     function order_view(){
-        return view('admin/admin-orders');
+        $orders=DB::table('orders')
+        ->join('products' , 'orders.product_id' , '=' , 'products.id')
+        ->join('users' , 'orders.user_id' , '=' , 'users.id')
+        ->where('orders.status',1)
+        ->select('products.*','orders.*','users.name as username')
+        ->get();
+        return view('admin/admin-orders',['orders'=>$orders]);
     }
 }
