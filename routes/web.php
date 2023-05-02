@@ -82,6 +82,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
         Route::get('/users','users')->name('userController.view');
         Route::get('/users-info/{id}','users_info')->name('userInfo.view');
         Route::get('/users-remove/{id}','users_remove')->name('user.remove');
+
+        Route::get('/orders','order_view')->name('orders.view');
     });
 
     Route::get('/category',function(){return view('admin/add-category');})->name('addCategory.view');

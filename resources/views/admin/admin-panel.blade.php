@@ -83,6 +83,20 @@
                    </a>
                </div>
 
+               <!-- Orders -->
+               <div class="mx-4">
+                   <a href="{{route('orders.view')}}" class="text-dark">
+                       <div class="bg-white shadow my-3 panel-option">
+                           <div class="panel-img">
+                               <img src="{{URL::asset('images/admin/orders.png')}}" alt="product-manager" class="img-fluid">
+                           </div>
+                           <div>
+                               <p class="text-center py-2">سفارش ها</p>
+                           </div>
+                       </div>
+                   </a>
+               </div>
+
                <!-- category Controller -->
                <div class="mx-4">
                    <a href="{{route('addCategory.view')}}" class="text-dark">

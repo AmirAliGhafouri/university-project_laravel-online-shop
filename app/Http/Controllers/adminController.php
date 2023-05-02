@@ -293,4 +293,7 @@ class adminController extends Controller
         return view('admin/add-category' , ['success','دسته‌بندی جدید با موفقیت ثبت شد']);
     }
 
+    function order_view(){
+        return view('admin/admin-orders');
+    }
 }
