@@ -300,6 +300,24 @@ class adminController extends Controller
         ->where('orders.status',1)
         ->select('products.*','orders.*','users.name as username')
         ->get();
+
+        $orders= DB::table('orders')
+        ->join('users' , 'orders.user_id' , '=' , 'users.id')
+        ->where('status',1)
+        ->select('orderCode','orders.created_at','users.name as username',DB::raw('count("orderCode") as occurences'))
+        ->groupBy('orderCode','orders.created_at','username')
+        ->having('occurences', '>', 0)
+        ->get();
         return view('admin/admin-orders',['orders'=>$orders]);
+    }
+
+    static function admin_order_group_list($order){
+        $joined_order=DB::table('orders')
+        ->join('products' , 'orders.product_id' , '=' , 'products.id')
+        // ->join('users' , 'orders.user_id' , '=' , 'users.id')
+        ->where(['orders.orderCode'=>$order])
+        ->select('products.*','orders.*')
+        ->get();
+        return $joined_order;
     }
 }

@@ -1,33 +1,30 @@
+<?php
+
+use App\Http\Controllers\adminController;
+
+?>
 @extends('admin/master')
 @section('content')
     <div class="bg-admin py-5">
         <div class="container">
             <h2 class="text-center bg-white py-3 rounded shadow">سفارش ها</h2>
-            @foreach($orders as $order)
-                <div class="d-flex justify-content-center my-3 row">
-                    <div class="col-md-8 shadow">
-                        <div class="row p-2 bg-light rounded d-flex justify-content-between">
-                            <div class="col-md-3 mt-1 d-flex justify-content-center">
-                                <div class="d-flex justify-content-center align-items-center rounded-circle bg-third text-white username-prf">
-                                    <i>{{$order->username}}</i>
-                                </div>
-                            </div>
+           <
 
-                            <div class="col-md-3">
-                                <div class="m-1 text-center"><img src='{{URL::asset("images/products/$order->category/$order->image")}}' class="img-fluid img-responsive rounded order-img"></div>
-                            </div>
-                                    
-                            <div class="col-md-2 mt-1 d-flex justify-content-center align-items-center flex-column">
-                                <div>
-                                    <a class="btn btn-eshop" href="#">اطلاعات </a>
-                                </div>
-                                <div class=" mt-4 ">
-                                    <a class="btn btn-remove" href="#">حذف‌<i class="fas fa-trash-alt"></i></a>
-                                </div>
-                            </div>
+           @foreach($orders->all() as $item)
+                <a href="{{route('order.list',['orderCode'=>$item->orderCode])}}">
+                    <ul class="d-flex justify-content-between p-2 my-4 border border border-dark rounded bg-light text-dark shadow">
+                        <div class="d-flex">
+                            @foreach(adminController::admin_order_group_list($item->orderCode)->all() as $product)
+                                <li class="m-1"><img src='{{URL::asset("images/products/$product->category/$product->image")}}' class="img-fluid img-responsive rounded order-img"></li>
+                            @endforeach
                         </div>
-                    </div>
-                </div>
+                        <div class="d-flex flex-column">
+                            <li class="text-left my-3 ">{{$item->username}}</li>
+                            <li class="text-left my-3 ">{{$item->created_at}}</li>
+                            <li class="text-left "> کد سفارش : {{$item->orderCode}}</li>
+                        </div>
+                    </ul>
+                </a>
             @endforeach
         </div>
     </div>
