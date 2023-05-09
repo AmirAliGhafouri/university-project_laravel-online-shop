@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminDeliveryController;
 use App\Http\Controllers\admin\AdminUserController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
@@ -75,26 +76,26 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
 
         Route::post('/add-admin','add_admin')->name('addAdmin');
 
-        Route::get('/delivery','delivery')->name('delivery');
-        Route::post('/delivery-cost','delivery_cost')->name('delivery.cost');
-        Route::post('/delivery-add','delivery_add')->name('delivery.add');
-        Route::post('/delivery-remove','delivery_remove')->name('delivery.remove');
+        // Route::get('/delivery','delivery')->name('delivery');
+        // Route::post('/delivery-cost','delivery_cost')->name('delivery.cost');
+        // Route::post('/delivery-add','delivery_add')->name('delivery.add');
+        // Route::post('/delivery-remove','delivery_remove')->name('delivery.remove');
 
-        // Route::get('/users','users')->name('userController.view');
-        // Route::get('/users-info/{id}','users_info')->name('userInfo.view');
-        // Route::get('/users-remove/{id}','users_remove')->name('user.remove');
-
-        // Route::get('/orders','order_view')->name('orders.view');
     });
 
     Route::controller(AdminUserController::class)->group(function(){
         Route::get('/users','users')->name('userController.view');
         Route::get('/users-info/{id}','users_info')->name('userInfo.view');
         Route::get('/users-remove/{id}','users_remove')->name('user.remove');
-
         Route::get('/orders','order_view')->name('orders.view');
     });
 
+    Route::controller(AdminDeliveryController::class)->group(function(){
+        Route::get('/delivery','delivery')->name('delivery');
+        Route::post('/delivery-update','delivery_update')->name('delivery.cost');
+        Route::post('/delivery-add','delivery_add')->name('delivery.add');
+        Route::post('/delivery-remove','delivery_remove')->name('delivery.remove');
+    });
 
     Route::get('/category',function(){return view('admin/add-category');})->name('addCategory.view');
     Route::get('/add-admin',function(){return view('admin/add-admin');})->name('addAdmin.view');

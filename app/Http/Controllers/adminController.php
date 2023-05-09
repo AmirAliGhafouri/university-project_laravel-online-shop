@@ -200,27 +200,6 @@ class adminController extends Controller
         return redirect()->route('admin.panel')->with('success',' ✅محصول جدید با موفقیت اضافه شد');
     }
 
-    //__________________________________________ Delivery 
-    function delivery(){
-        $post=post::all();
-        return view('admin/post',['posts'=>$post]);
-    }
-    function delivery_cost(Request $req){
-        post::where('post',$req->post_name)->update(['cost'=>$req->cost]);      
-        return redirect()->route('admin.panel')->with('success',' ✅هزینه پست با موفقیت بروزرسانی شد');
-    }
-    function delivery_add(Request $req){
-        $newDelivery= new post();
-        $newDelivery->post=$req->name;
-        $newDelivery->cost=$req->cost;
-        $newDelivery->save();
-        return redirect()->route('admin.panel')->with('success','  ✅پست با موفقیت ثبت شد');
-    }
-    function delivery_remove(Request $req){
-        post::where('post',$req->post_name)->delete();
-        return redirect()->route('admin.panel')->with('success','  ✅پست با موفقیت حذف شد');
-    }
-
     //__________________________________________ Add ADMIN
     function add_admin(Request $req){
         $req->validate([
