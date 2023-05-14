@@ -14,8 +14,6 @@ use App\Models\order;
                 <th>تصویر محصول</th>
                 <th>نام محصول</th>
                 <th>قیمت</th>
-{{--                <th>نوع پرداخت</th>--}}
-{{--                <th>محل ریافت</th>--}}
             </tr>
 
             @foreach($orders->all() as $product)
@@ -23,8 +21,6 @@ use App\Models\order;
                     <td><a href="{{route('product.details',['id'=>$product->pid])}}"><img src='{{URL::asset("images/products/$product->category/$product->image")}}' class="img-fluid img-responsive rounded order-img"></a></td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->price}}تومان</td>
-{{--                    <td>{{$product->payment_method}}</td>--}}
-{{--                    <td>{{$product->address}}</td>--}}
                 </tr>
             @endforeach
 

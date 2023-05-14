@@ -25,11 +25,6 @@
                             <span><span id="post_cost">{{$posts[0]->cost}} </span>تومان</span>
                         </p>
 
-{{--                        <hr>--}}
-{{--                        <p class="d-flex justify-content-around">--}}
-{{--                            <span>جمع کل پراختی</span>--}}
-{{--                            <span>{{$total_price+15000}}تومان</span>--}}
-{{--                        </p>--}}
                     </div>
                 </div>
 	          	<div class="col-md-6">
