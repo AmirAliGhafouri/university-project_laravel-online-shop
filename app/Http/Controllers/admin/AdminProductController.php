@@ -1,45 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-
+use App\Http\Controllers\Controller;
 use App\Models\category;
-use App\Models\order;
-use App\Models\post;
 use App\Models\product;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 
-class adminController extends Controller
+class AdminProductController extends Controller
 {
-    function admin_panel(){
-        $date= date('Y-m-d h:m:s');
-        $money=DB::table('orders')
-            ->join('products','orders.product_id','=','products.id')
-            ->where('orders.created_at',$date)
-            ->sum('products.price');
-
-        $user_count=User::all()->count();
-        $admin=Session::get('user')['name'];
-
-        //////////////
-
-//        $categories=category::all();
-//        $product=product::where('category','موبایل')->get();
-
-        /////////////
-
-//        $users=User::all();
-        return view('admin/admin-panel',['users_count'=>$user_count , 'money'=>$money , 'admin'=>$admin ]);
-    }
-
-    //___________________________________________ product Controller
-   /*  function product_management(){
+    function product_management(){
         $categories=category::all();
         $product=product::where('category','موبایل')->get();
         return view('admin/product-management' , [ 'categories'=>$categories , 'products'=>$product]);
@@ -198,49 +169,5 @@ class adminController extends Controller
         $newProduct->save();
 
         return redirect()->route('admin.panel')->with('success',' ✅محصول جدید با موفقیت اضافه شد');
-    } */
-
-    //__________________________________________ Add ADMIN
-    function add_admin(Request $req){
-        $req->validate([
-            'name'=>'required | regex:/(^([a-zA-z0-9 آ-ی]+)(\d+)?$)/u ',
-            'email'=>'required |unique:users| email',
-            'pswd'=>'required | min:4 | max:8'
-        ]);
-
-        $user=new User;
-        $user->name=$req->name;
-        $user->email=$req->email;
-        $user->admin=1;
-        $user->password=Hash::make($req->pswd);
-        $user->save();
-
-        return view('admin/add-admin' , ['success'=>'ادمین جدید با موفقیت اضافه شد']);
     }
-
-    //__________________________________________ Add category
-    function add_category(Request $req){
-        $req->validate([
-            'name'=>'required|unique:category',
-            'c_image'=>'required|image'
-        ]);
-
-        //save image
-        $file=$req->file('c_image');
-        $ctgname=$file->getClientOriginalName();
-        $dstPath=public_path()."/images/category";
-        $file->move($dstPath,$ctgname);
-
-        //Make Folder
-        $img_path=public_path()."/images/products/$req->category";
-        File::makeDirectory($img_path);
-
-        $newctg= new category;
-        $newctg->category=$req->name;
-        $newctg->image="$ctgname";
-        $newctg->save();
-
-        return view('admin/add-category' , ['success','دسته‌بندی جدید با موفقیت ثبت شد']);
-    }
-
 }

@@ -42,8 +42,9 @@ ul{
 }
 
 .bg-admin{
-    background-image: url("../images/admin/admin-background.jpg");
-    background-size: 500px;
+    background-image: url("../images/admin/peakpx\(9\).jpg");
+    /* background-size: 500px; */
+    background-size: cover;
 }
 
 .text-second{

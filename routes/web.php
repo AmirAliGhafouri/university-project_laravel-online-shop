@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminDeliveryController;
+use App\Http\Controllers\admin\AdminProductController;
 use App\Http\Controllers\admin\AdminUserController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
@@ -61,7 +62,14 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
     Route::controller(adminController::class)->group(function(){
 
         Route::get('/admin-panel','admin_panel')->name('admin.panel');
+        
+        Route::post('/add-category','add_category')->name('addCategory');
 
+        Route::post('/add-admin','add_admin')->name('addAdmin');
+
+    });
+
+    Route::controller(AdminProductController::class)->group(function(){
         Route::get('/product-management','product_management')->name('product.management');
         Route::get('/product-control','product_control');
         Route::get('/edit-product/{id}','edit_product_view')->name('edit.view');
@@ -71,16 +79,6 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
 
         Route::get('/add-product','add_product_view')->name('addProduct.view');
         Route::post('/add-product','add_product')->name('addProduct');
-
-        Route::post('/add-category','add_category')->name('addCategory');
-
-        Route::post('/add-admin','add_admin')->name('addAdmin');
-
-        // Route::get('/delivery','delivery')->name('delivery');
-        // Route::post('/delivery-cost','delivery_cost')->name('delivery.cost');
-        // Route::post('/delivery-add','delivery_add')->name('delivery.add');
-        // Route::post('/delivery-remove','delivery_remove')->name('delivery.remove');
-
     });
 
     Route::controller(AdminUserController::class)->group(function(){
