@@ -127,8 +127,6 @@
                 </a>
             </div>
         </div>
-{{--                <div class="swiper-button-next" data-slide="next"></div>--}}
-{{--                <div class="swiper-button-prev" data-slide="prev"></div>--}}
 
         <div class="swiper-pagination"></div>
     </div>
@@ -181,8 +179,7 @@
                 </a>
             </div>
         </div>
-        {{--                <div class="swiper-button-next" data-slide="next"></div>--}}
-        {{--                <div class="swiper-button-prev" data-slide="prev"></div>--}}
+      
 
         <div class="swiper-pagination"></div>
     </div>
@@ -235,8 +232,7 @@
                 </a>
             </div>
         </div>
-        {{--                <div class="swiper-button-next" data-slide="next"></div>--}}
-        {{--                <div class="swiper-button-prev" data-slide="prev"></div>--}}
+
 
         <div class="swiper-pagination"></div>
     </div>

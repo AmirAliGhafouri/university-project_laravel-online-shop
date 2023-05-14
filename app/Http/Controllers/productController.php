@@ -194,7 +194,7 @@ class productController extends Controller
         ->select('orderCode','created_at',DB::raw('count("orderCode") as occurences'))
         ->groupBy('orderCode','created_at')
         ->having('occurences', '>', 0)
-        ->get();
+        ->get()->sortByDesc('created_at');
         //user info
         $user_info=User::where('id' , $user_id)->first();
         return view('user-panel' , ['orders'=>$orders , 'info'=>$user_info]);
