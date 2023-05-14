@@ -32,7 +32,7 @@
                 <img src="images/products/{{$item->category}}/{{$item->image}}" alt="Chicago"class="img-fluid mb-5 carousel-img">
             </div>
             <div class="carousel-caption mt-5">
-                <h3>{{$item->name}}</h3>
+                <h3 class="txt-shadow">{{$item->name}}</h3>
             </div>
         </div>
         @if($count>2)
@@ -80,9 +80,9 @@
     <!-- ///////////////////////////////////////////////////////////////////// -->
 </div>
 
-<section class="mx-2">
+<section class="mx-2 mb-5 bg-second rounded py-2">
     <h2 class="text-center mt-5 mb-3">محبوب ترین ها </h2>
-    <div class="swiper mySwiper p-2 bg-second rounded">
+    <div class="swiper mySwiper p-2 ">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $rate_product_counter=0; @endphp
             @foreach($productByRate as $rate)
@@ -132,9 +132,9 @@
     </div>
 </section>
 
-<section class="mx-2">
+<section class="mx-2 mb-5 bg-second rounded py-2">
     <h2 class="text-center mt-5 mb-3">پر فروش ترین ها</h2>
-    <div class="swiper mySwiper p-2 bg-second rounded">
+    <div class="swiper mySwiper p-2">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $sell_product_counter=0; @endphp
             @foreach($productBySell as $sell)
@@ -185,9 +185,9 @@
     </div>
 </section>
 
-<section class="mx-2 mb-5">
+<section class="mx-2 mb-5 bg-second rounded py-2">
     <h2 class="text-center mt-5 mb-3">جدیدترین ها</h2>
-    <div class="swiper mySwiper p-2 bg-second rounded">
+    <div class="swiper mySwiper p-2">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $sell_product_counter=0; @endphp
             @foreach($productByTime as $time)
