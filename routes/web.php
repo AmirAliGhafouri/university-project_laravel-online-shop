@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\admin\AdminCategoryController;
+use App\Http\Controllers\admin\adminController;
 use App\Http\Controllers\admin\AdminDeliveryController;
 use App\Http\Controllers\admin\AdminProductController;
 use App\Http\Controllers\admin\AdminUserController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
-use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,15 +60,11 @@ Route::group(['middleware'=>'user.auth'],function (){
 //_______________________________ Admin
 Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
     Route::controller(adminController::class)->group(function(){
-
         Route::get('/admin-panel','admin_panel')->name('admin.panel');
-        
-
         Route::post('/add-admin','add_admin')->name('addAdmin');
-
     });
 
-    Route::controller(AdminProductController::class)->group(function(){
+    Route::controller(AdminCategoryController::class)->group(function(){
         Route::post('/add-category','add_category')->name('addCategory');
     });
 
