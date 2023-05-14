@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[productController::class,'index'])->name('home');
-// Route::get('/test',[productController::class,'test'])->name('test');
 
 Route::get('/products/{category}',[productController::class,'products'])->name('products');
 Route::get('/groupby/{column}',[productController::class,'group_by'])->name('most');
@@ -63,10 +62,13 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
 
         Route::get('/admin-panel','admin_panel')->name('admin.panel');
         
-        Route::post('/add-category','add_category')->name('addCategory');
 
         Route::post('/add-admin','add_admin')->name('addAdmin');
 
+    });
+
+    Route::controller(AdminProductController::class)->group(function(){
+        Route::post('/add-category','add_category')->name('addCategory');
     });
 
     Route::controller(AdminProductController::class)->group(function(){
