@@ -66,10 +66,15 @@
     		<h2 class="display-4 mb-3">{{$details->name}}</h2>
 
 			<p>{{$details->description}}</p>
-          	<div class=" mt-2">
-                <strong class="mb-5">{{$details->price}}تومان</strong>
-				<a href="{{route('add.cart',['id'=>$details->id])}}" class="btn btn-eshop">افزودن‌به‌سبد‌خرید <i class="fa-solid fa-cart-plus"></i></a>
-			</div>
+          	
+            @if($details->product_status)
+                <div class=" mt-2">
+                    <strong class="mb-5">{{$details->price}}تومان</strong>
+                    <a href="{{route('add.cart',['id'=>$details->id])}}" class="btn btn-eshop">افزودن‌به‌سبد‌خرید <i class="fa-solid fa-cart-plus"></i></a>
+                </div>
+            @else
+                <p class="p-3 rounded bg-danger text-center text-white">ناموجود</p>
+            @endif
     	</div>
     </div>
 

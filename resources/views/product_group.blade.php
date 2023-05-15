@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-{{--    <h2 class="my-5 text-center">جستجو برای : {{$search}}</h2>--}}
     <div class="container d-flex justify-content-center flex-wrap my-5">
         @foreach($products as $item)
             <a href="{{route('product.details',['id'=>$item->id])}}" class="card-txt">
@@ -18,8 +17,12 @@
                             @else
                                 <span>بدون امتیاز</span>
                             @endif
-                        </div>
-                        <p class="badge text-dark">{{$item->price}}تومان</p>
+                        </div> 
+                        @if($item->product_status)
+                                <p class="badge text-dark">{{$item->price}}تومان</p>
+                        @else
+                                <p class="badge badge-danger">ناموجود</p>
+                        @endif
                     </div>
                 </div>
             </a>

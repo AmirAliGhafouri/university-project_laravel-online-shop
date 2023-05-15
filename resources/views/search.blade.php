@@ -19,7 +19,11 @@
                                 <span>بدون امتیاز</span>
                             @endif
                         </div>
-                        <p class="badge text-dark">{{$item->price}}تومان</p>
+                        @if($item->product_status)
+                            <p class="badge text-dark">{{$item->price}}تومان</p>
+                        @else
+                            <p class="badge badge-danger">ناموجود</p>
+                        @endif
                     </div>
                 </div>
             </a>
