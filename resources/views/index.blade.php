@@ -103,7 +103,11 @@
                                         <span>بدون امتیاز</span>
                                     @endif
                                 </div>
-                                <p class="badge text-dark">{{$rate->price}}تومان</p>
+                                @if($rate->product_status)
+                                    <p class="badge text-dark">{{$rate->price}}تومان</p>
+                                @else
+                                    <p class="badge badge-danger">ناموجود</p>
+                                @endif
                             </div>
                         </div>
                     </a>
@@ -155,7 +159,11 @@
                                         <span>بدون امتیاز</span>
                                     @endif
                                 </div>
-                                <p class="badge text-dark">{{$sell->price}}تومان</p>
+                                @if($sell->product_status)
+                                    <p class="badge text-dark">{{$sell->price}}تومان</p>
+                                @else
+                                    <p class="badge badge-danger">ناموجود</p>
+                                @endif
                             </div>
                         </div>
                     </a>
@@ -208,7 +216,12 @@
                                         <span>بدون امتیاز</span>
                                     @endif
                                 </div>
-                                <p class="badge text-dark">{{$time->price}}تومان</p>
+                                @if($time->product_status)
+                                    <p class="badge text-dark">{{$time->price}}تومان</p>
+                                @else
+                                    <p class="badge badge-danger">ناموجود</p>
+                                @endif
+
                             </div>
                         </div>
                     </a>

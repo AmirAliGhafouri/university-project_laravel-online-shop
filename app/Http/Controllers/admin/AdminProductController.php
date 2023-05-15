@@ -67,7 +67,6 @@ class AdminProductController extends Controller
             'image'=>'image'
         ]); 
 
-        $newProduct= new product;
         if($req->name)
             product::where('id',$id)->update(['name'=>$req->name]); 
         if($req->price) 
@@ -89,12 +88,7 @@ class AdminProductController extends Controller
 
     //__________________________________________ Remove product 
     function remove_product($id){
-        try{
-            product::destroy($id);
-        }
-        catch(\Exception $exception){
-            abort(404);
-        }
+        product::where('id',$id)->update(['product_status'=>0]);
         return redirect()->route('product.management')->with('success','محصول مورد نظر با موفقیت حذف شد');
     }
 
