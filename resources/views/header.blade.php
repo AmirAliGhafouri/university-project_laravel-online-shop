@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Session;
   $logged=false;
   if(Session::has('user')){
     $logged=true;
-
+    if(Session::get('user')['admin'])
+      $admin=true;
     $username=User::where('id',Session::get('user')['id'])->first()->name;
   }
 
@@ -78,6 +79,12 @@ use Illuminate\Support\Facades\Session;
           <li class="nav-item ml-2">
               <a class="nav-link drop-link " href="{{route('user.panel')}}" title="پنل کاربری">{{$username}}<i class="fa fa-user"></i></a>
           </li>
+            @if($admin)
+              <li class="nav-item ml-2">
+                    <a class="nav-link drop-link " href="{{route('admin.panel')}}" title=" پنل ادمین"><i class="fa fa-user"></i>ADMIN</a>
+              </li>
+            @endif
+
         @endif
 
 

@@ -13,11 +13,11 @@ use App\Http\Controllers\Controller;
 class adminController extends Controller
 {
     function admin_panel(){
-        $date= date('Y-m-d h:m:s');
+        $date= date('Ymd');
         $money=DB::table('orders')
             ->join('products','orders.product_id','=','products.id')
-            ->where('orders.created_at',$date)
-            ->sum('products.price');
+            ->where('orders.date',$date)
+            ->sum('price');
 
         $user_count=User::all()->count();
         $admin=Session::get('user')['name'];

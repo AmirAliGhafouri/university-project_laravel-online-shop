@@ -20,7 +20,6 @@ class AdminProductController extends Controller
         $products=product::where(['category'=>$req->category , 'product_status'=>1])->get();
         if($products){
            foreach($products as $product){
-               $image=URL::asset("images/products/$req->category/$product->image");
                $output.='
                <div class="d-flex justify-content-center row my-3 ">
                             <div class="col-md-10 shadow">

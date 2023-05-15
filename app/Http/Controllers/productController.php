@@ -176,6 +176,7 @@ class productController extends Controller
             $order->payment_method=$req->payment;
             $order->address=$req->address;
             $order->orderCode=$date.$order_code;
+            $order->date=$date;
             $order->save();
 
             product::where('id',$cart->product_id)->increment('sale_quantity');
