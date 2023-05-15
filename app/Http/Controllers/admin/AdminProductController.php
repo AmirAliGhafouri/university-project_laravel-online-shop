@@ -17,17 +17,17 @@ class AdminProductController extends Controller
     }
     function product_control(Request $req){
         $output="";
-        $products=product::where('category',$req->category)->get();
+        $products=product::where(['category'=>$req->category , 'product_status'=>1])->get();
         if($products){
            foreach($products as $product){
-               $image=URL::asset("images/products/$product->category/$product->image");
+               $image=URL::asset("images/products/$req->category/$product->image");
                $output.='
                <div class="d-flex justify-content-center row my-3 ">
                             <div class="col-md-10 shadow">
                                 <div class="row p-2 bg-light rounded">
                                     <div class="col-md-4 mt-1">
                                         <a href="/details/'.$product->id.'">
-                                            <img class="img-fluid rounded shadow"  src='.$image.'>
+                                            <img class="img-fluid rounded shadow"  src="'.URL::asset("images/products/$req->category/$product->image").'">
                                         </a>
                                     </div>
                                     <div class="col-md-5 mt-1 d-flex align-items-center justify-content-center">

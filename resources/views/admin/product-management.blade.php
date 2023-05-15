@@ -55,7 +55,6 @@
                 url:"{{URL::to('admin/product-control')}}",
                 data:{'category':$value},
                 success: function(data){
-                    console.log(data);
                     $('#product_info_container').html(data);
                 }
             });
