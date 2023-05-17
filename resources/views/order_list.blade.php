@@ -7,7 +7,7 @@ use App\Models\order;
 @extends('master')
 @section('content')
     <div class="container">
-        <h2 class="display-4 my-5 text-center">سفارش ها</h2>
+        <h2 class=" my-5 text-center py-4 text-white bg-dark rounded">سفارش ها</h2>
         <div></div>
         <table class="table text-center">
             <tr>
@@ -26,9 +26,9 @@ use App\Models\order;
 
         </table>
 
-        <h3 class="text-center mb-4">جزئیات سفارش</h3>
+        <h3 class="text-center my-4 py-4 text-white bg-dark rounded">جزئیات سفارش</h3>
         <div class="d-flex justify-content-center">
-            <table class="table text-center border col-md-8">
+            <table class="table text-center border col-md-10 bg-second">
                 <tr>
                     <td>کد سفارش</td>
                     <td>{{$info->orderCode}}</td>
@@ -37,6 +37,11 @@ use App\Models\order;
                 <tr>
                     <td>نوع پرداخت</td>
                     <td>{{$info->payment_method}}</td>
+                </tr>
+
+                <tr>
+                    <td>نوع ارسال</td>
+                    <td>{{$info->delivery_type}}</td>
                 </tr>
 
                 <tr>

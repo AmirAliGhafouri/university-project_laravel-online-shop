@@ -10,16 +10,7 @@
                             <span>جمع هزینه ها</span>
                             <span>{{$total_price}}تومان</span>
                         </p>
-
-                        <div class="form-group text-right">
-                            <select class="form-control" id="post" name="post">
-                                @foreach($posts as $post)
-                                    <option value="{{$post->post}}">{{$post->post}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-
+                        <hr>
                         <p class="d-flex justify-content-around my-5">
                             <span>هزینه ارسال</span>
                             <span><span id="post_cost">{{$posts[0]->cost}} </span>تومان</span>
@@ -32,6 +23,15 @@
 	          			<h3 class="text-center mb-4">آدرس و شیوه ی پرداخت</h3>
                         <form action="{{route('order')}}" method="POST">
                             @csrf
+                            <div class="form-group text-right">
+                                <label for="post">شیوه ارسال :</label>
+                                <select class="form-control" id="post" name="delivery">
+                                    @foreach($posts as $post)
+                                        <option value="{{$post->post}}">{{$post->post}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <textarea class="form-control @error('address') {{'is-invalid'}} @enderror cmt-box" name="address" rows="3" placeholder="آدرس خود را وارد کنید . . ."></textarea>
                                 @error('address')

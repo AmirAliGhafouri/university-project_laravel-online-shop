@@ -174,6 +174,7 @@ class productController extends Controller
             $order->user_id=$cart['user_id'];
             $order->product_id=$cart['product_id'];
             $order->payment_method=$req->payment;
+            $order->delivery_type=$req->delivery;
             $order->address=$req->address;
             $order->orderCode=$date.$order_code;
             $order->date=$date;
@@ -224,8 +225,8 @@ class productController extends Controller
 
         $order_info=DB::table('orders')
             ->where('orderCode' , $orderCode)
-            ->select('orderCode','created_at','payment_method' , 'address')
-            ->groupBy('orderCode','created_at','payment_method' , 'address')
+            ->select('orderCode','created_at','payment_method' , 'address' , 'delivery_type')
+            ->groupBy('orderCode','created_at','payment_method' , 'address', 'delivery_type')
             ->first();
 
         return view('order_list',['orders'=>$products_info , 'info'=>$order_info]);
