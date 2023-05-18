@@ -21,6 +21,7 @@
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
   </ul>
   <div class="carousel-inner">
     <?php
@@ -80,15 +81,15 @@
     <!-- ///////////////////////////////////////////////////////////////////// -->
 </div>
 
-<section class="mx-2 mb-5 bg-second rounded py-2">
-    <h2 class="text-center mt-5 mb-3">محبوب ترین ها </h2>
-    <div class="swiper mySwiper p-2 ">
+<section class="mx-4 mb-5 pt-2 ">
+    <h2 class="text-center mb-3">محبوب ترین ها </h2>
+    <div class="swiper mySwiper p-2 bg-third rounded">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $rate_product_counter=0; @endphp
             @foreach($productByRate as $rate)
                 <div class="swiper-slide mb-5 rounded">
                     <a href="{{route('product.details',['id'=>$rate->id])}}" class="card-txt">
-                        <div class="card p-0 card-index border-0">
+                        <div class="card p-0 card-index border-0 rounded">
                             <img class="img-fluid img-round" src='{{URL::asset("images/products/$rate->category/$rate->image")}}' alt="Card image" style="width:100%;">
                             <div class="text-center">
                                 <h4 class="my-2">{{$rate->name}}</h4>
@@ -118,13 +119,13 @@
                 @endif
 
             @endforeach
-            <div class="swiper-slide mb-5">
+            <div class="swiper-slide mb-5 bg-fourth">
                 <a href="{{route('most',['column'=>'rating'])}}" class="card-txt">
-                    <div class="card p-0 card-index border-0">
-                        <div class="bg-second">
+                    <div class="card p-0 card-index border-0 bg-fourth">
+                        <div class="bg-fourth">
                             <i class="fas fa-chevron-circle-left crousel-arrow"></i>
                         </div>
-                        <div class="text-center bg-second">
+                        <div class="text-center bg-fourth">
                             <p class="badge text-black">بیشتر</p>
                         </div>
                     </div>
@@ -136,15 +137,15 @@
     </div>
 </section>
 
-<section class="mx-2 mb-5 bg-second rounded py-2">
+<section class="mx-4 mb-5 pt-2">
     <h2 class="text-center mt-5 mb-3">پر فروش ترین ها</h2>
-    <div class="swiper mySwiper p-2">
+    <div class="swiper mySwiper p-2 bg-third rounded">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $sell_product_counter=0; @endphp
             @foreach($productBySell as $sell)
                 <div class="swiper-slide mb-5 rounded">
                     <a href="{{route('product.details',['id'=>$sell->id])}}" class="card-txt ">
-                        <div class="card p-0 card-index">
+                        <div class="card p-0 card-index rounded">
                             <img class="img-fluid img-round" src='{{URL::asset("images/products/$sell->category/$sell->image")}}' alt="Card image" style="width:100%;">
                             <div class="text-center">
                                 <h4 class="my-2">{{$sell->name}}</h4>
@@ -174,13 +175,13 @@
                 @endif
 
             @endforeach
-            <div class="swiper-slide mb-5">
+            <div class="swiper-slide bg-fourth mb-5">
                 <a href="{{route('most',['column'=>'sale_quantity'])}}" class="card-txt ">
-                    <div class="card p-0 card-index border-0">
-                        <div class="bg-second">
+                    <div class="card p-0 card-index border-0 bg-fourth">
+                        <div class="bg-fourth">
                             <i class="fas fa-chevron-circle-left crousel-arrow"></i>
                         </div>
-                        <div class="text-center bg-second">
+                        <div class="text-center bg-fourth">
                             <p class="badge text-black">بیشتر</p>
                         </div>
                     </div>
@@ -193,15 +194,15 @@
     </div>
 </section>
 
-<section class="mx-2 mb-5 bg-second rounded py-2">
+<section class="mx-4 mb-5 pt-2">
     <h2 class="text-center mt-5 mb-3">جدیدترین ها</h2>
-    <div class="swiper mySwiper p-2">
+    <div class="swiper mySwiper p-2 bg-third rounded">
         <div class="swiper-wrapper d-flex align-items-center">
             @php $sell_product_counter=0; @endphp
             @foreach($productByTime as $time)
                 <div class="swiper-slide mb-5 rounded">
                     <a href="{{route('product.details',['id'=>$time->id])}}" class="card-txt ">
-                        <div class="card p-0 card-index">
+                        <div class="card p-0 card-index rounded">
                             <img class="img-fluid img-round" src='{{URL::asset("images/products/$time->category/$time->image")}}' alt="Card image" style="width:100%;">
                             <div class="text-center">
                                 <h4 class="my-2">{{$time->name}}</h4>
@@ -232,13 +233,13 @@
                 @endif
 
             @endforeach
-            <div class="swiper-slide mb-5">
+            <div class="swiper-slide mb-5 bg-fourth">
                 <a href="{{route('most',['column'=>'created_at'])}}" class="card-txt ">
-                    <div class="card p-0 card-index border-0">
-                        <div class="bg-second">
+                    <div class="card p-0 card-index border-0 bg-fourth">
+                        <div class="bg-fourth">
                             <i class="fas fa-chevron-circle-left crousel-arrow"></i>
                         </div>
-                        <div class="text-center bg-second">
+                        <div class="text-center bg-fourth">
                             <p class="badge text-black">بیشتر</p>
                         </div>
                     </div>

@@ -41,6 +41,12 @@ ul{
     background: radial-gradient(#7136f0 , #21bdd0);
 }
 
+.bg-fourth{
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+
 .bg-admin{
     background-image: url("../images/admin/bg-admin.jpg");
     /* background-size: 500px; */
@@ -288,7 +294,7 @@ ul{
 }
 
 .img-round{
-    border-radius:0.25rem 0.25rem 0 0 ;
+    border-radius:0.7rem 0.7rem 0 0 ;
 }
 
 /******************************************************************************* Forms */
@@ -387,6 +393,10 @@ ul{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.rounded{
+    border-radius: 0.7rem !important;
 }
 
 /*////////////////////////////// ADMIN ///////////////////////////////////// */

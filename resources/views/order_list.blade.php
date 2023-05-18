@@ -23,7 +23,7 @@
 
             <h3 class="text-center my-4 py-4 text-white bg-dark rounded">جزئیات سفارش</h3>
             <div class="d-flex justify-content-center">
-                <table class="table text-center border col-md-10 bg-second">
+                <table class="table text-center border w-100 bg-second">
                     <tr>
                         <td>کد سفارش</td>
                         <td>{{$info->orderCode}}</td>
