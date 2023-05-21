@@ -53,7 +53,7 @@ class productController extends Controller
     //________________________________________ Product sort by Column
     function group_by($column){
         $product=product::all()->sortBy($column)->reverse();
-        $list=array_slice($product->all(),0,2);
+        $list=array_slice($product->all(),0,20);
         return view('product_group' , ['products'=>$list]);
     }
 

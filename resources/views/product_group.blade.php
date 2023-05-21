@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-center flex-wrap my-5">
         @foreach($products as $item)
             <a href="{{route('product.details',['id'=>$item->id])}}" class="card-txt">
-                <div class="card card-products mx-2">
+                <div class="card card-products m-2">
                     <img class="img-fluid" src='{{URL::asset("images/products/$item->category/$item->image")}}' alt="Card image">
                     <div class="text-center">
                         <h4 class="my-2">{{$item->name}}</h4>
