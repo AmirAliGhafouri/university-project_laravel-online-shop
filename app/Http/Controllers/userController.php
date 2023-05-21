@@ -54,8 +54,8 @@ class userController extends Controller
         $user_id=Session::get('user')['id'];
 
         $req->validate([
-            'username'=>'regex:/(^([a-zA-z0-9 آ-ی]+)(\d+)?$)/u ',
-            'email'=>'unique:users| email'
+            'username'=>'Nullable|regex:/(^([a-zA-z0-9 آ-ی]+)(\d+)?$)/u',
+            'email'=>'unique:users| email |Nullable'
         ]);
 
         if($req->username){
