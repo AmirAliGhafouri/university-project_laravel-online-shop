@@ -78,9 +78,9 @@ class userController extends Controller
         ]);
 
         $user_id=Session::get('user')['id'];
-        $old_pass=Hash::check($req->oldpswd , user::where('id',$user_id)->first());
+        $old_pass=Hash::check($req->oldpswd , user::where('id',$user_id)->first()->password);
         if($old_pass){
-            user::where('id',$user_id)->update(['password',Hash::make($req->newpswd)]);
+            user::where('id',$user_id)->update(['password'=>Hash::make($req->newpswd)]);
             return redirect()->route('user.panel')->with('success_message','رمز عبور شما با موفقیت تغییر کرد ✅');
         }
         return redirect()->route('user.panel')->with('error_message','رمز عبور شما اشتباه است❗');
