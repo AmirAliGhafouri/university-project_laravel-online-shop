@@ -83,8 +83,11 @@
 
 <section class="mx-4 mb-5 pt-2 ">
     <h2 class="text-center mb-3">محبوب ترین ها </h2>
-    <div class="swiper mySwiper p-2 bg-third rounded">
+    <div class="swiper mySwiper p-2 bg-third rounded">    
         <div class="swiper-wrapper d-flex align-items-center">
+        <div class="swiper-slide mb-5 bg-fourth">
+            <img class="img-fluid img-round" src='{{URL::asset("images/backgrounds/rating.png")}}' alt="Card image" style="width:100%;">
+        </div>
             @php $rate_product_counter=0; @endphp
             @foreach($productByRate as $rate)
                 <div class="swiper-slide mb-5 rounded">
@@ -114,7 +117,7 @@
                     </a>
                 </div>
                 @php $rate_product_counter++; @endphp
-                @if($rate_product_counter >3)
+                @if($rate_product_counter >5)
                     @break
                 @endif
 
@@ -141,6 +144,9 @@
     <h2 class="text-center mt-5 mb-3">پر فروش ترین ها</h2>
     <div class="swiper mySwiper p-2 bg-third rounded">
         <div class="swiper-wrapper d-flex align-items-center">
+            <div class="swiper-slide mb-5 bg-fourth">
+                <img class="img-fluid img-round" src='{{URL::asset("images/backgrounds/sell.png")}}' alt="Card image" style="width:100%;">
+            </div>       
             @php $sell_product_counter=0; @endphp
             @foreach($productBySell as $sell)
                 <div class="swiper-slide mb-5 rounded">
@@ -170,7 +176,7 @@
                     </a>
                 </div>
                 @php $sell_product_counter++; @endphp
-                @if($sell_product_counter >3)
+                @if($sell_product_counter >5)
                     @break
                 @endif
 
@@ -198,6 +204,9 @@
     <h2 class="text-center mt-5 mb-3">جدیدترین ها</h2>
     <div class="swiper mySwiper p-2 bg-third rounded">
         <div class="swiper-wrapper d-flex align-items-center">
+            <div class="swiper-slide mb-5 bg-fourth">
+                <img class="img-fluid img-round" src='{{URL::asset("images/backgrounds/new.png")}}' alt="Card image" style="width:100%;">
+            </div>
             @php $sell_product_counter=0; @endphp
             @foreach($productByTime as $time)
                 <div class="swiper-slide mb-5 rounded">
@@ -228,7 +237,7 @@
                     </a>
                 </div>
                 @php $sell_product_counter++; @endphp
-                @if($sell_product_counter >3)
+                @if($sell_product_counter >5)
                     @break
                 @endif
 
