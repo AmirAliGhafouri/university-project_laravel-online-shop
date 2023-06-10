@@ -12,7 +12,7 @@ class AdminProductController extends Controller
 {
     function product_management(){
         $categories=category::all();
-        $product=product::where('category','موبایل')->get();
+        $product=product::where(['category'=>'موبایل' ,'product_status'=>1])->get();
         return view('admin/product-management' , [ 'categories'=>$categories , 'products'=>$product]);
     }
     function product_control(Request $req){
@@ -62,8 +62,8 @@ class AdminProductController extends Controller
     }
     function edit_product(Request $req , $id){
         $req->validate([
-            'price'=>'numeric',
-            'image'=>'image'
+            'price'=>'Nullable|numeric',
+            'image'=>'Nullable|image'
         ]); 
 
         if($req->name)
