@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\admin\AdminUserController;
 
 ?>
 @extends('admin/master')
@@ -8,9 +8,9 @@ use App\Http\Controllers\adminController;
 
 <div class="bg-admin">
     <div class="container py-5">
-       <div class="bg-second rounded py-5">
+       <div class="bg-dark text-white rounded py-5">
             <h2 class="text-center display-5 mb-5">مشخصات کاربر</h2>
-            <table class="table text-center table-font">
+            <table class="table text-center table-font text-white">
                 <tr>
                     <th>نام کاربری</th>
                     <td>{{$user->name}}</td>
@@ -24,12 +24,12 @@ use App\Http\Controllers\adminController;
        </div>
        <div class="py-5">
         @if($orders->all())
-            <h2 class="display-4 my-5 text-center bg-second rounded">تاریخچه ی سفارش ها</h2>
+            <h2 class="display-4 my-5 text-center bg-dark text-white rounded">تاریخچه ی سفارش ها</h2>
             @foreach($orders->all() as $item)
                 <a href="{{route('order.list',['orderCode'=>$item->orderCode])}}">
                     <ul class="d-flex justify-content-between p-2 my-4 border border border-dark rounded bg-light text-dark shadow">
                         <div class="d-flex">
-                            @foreach(adminController::order_group_list($item->orderCode,$user->id)->all() as $product)
+                            @foreach(AdminUserController::order_group_list($item->orderCode,$user->id)->all() as $product)
                                 <li class="m-1"><img src='{{URL::asset("images/products/$product->category/$product->image")}}' class="img-fluid img-responsive rounded order-img"></li>
                             @endforeach
                         </div>
