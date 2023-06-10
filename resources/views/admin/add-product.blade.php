@@ -1,13 +1,14 @@
 @extends('admin/master')
 @section('content')
-            <div class="container">
+    <div class="bg-admin">
+    <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-10">
                         <div class="wrap d-md-flex flex-row-reverse my-5 shadow">
                             <div class="col-lg-6 d-flex justify-content-center align-items-center login-back">
                                 <img class="img-fluid img-responsive rounded product-image login-img"  src='{{URL::asset("images/admin/addProduct.png")}}'>
                             </div>
-                            <div class="col-lg-6 pl-md-5 form-container p-5">
+                            <div class="col-lg-6 pl-md-5 form-container p-5 bg-white">
                                 <h2 class="display-5 text-center mb-5">افزودن محصول جدید</h2>
                                 <form action="{{route('addProduct')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
@@ -69,4 +70,5 @@
                     </div>
                 </div>
             </div>
+    </div>
 @endsection
