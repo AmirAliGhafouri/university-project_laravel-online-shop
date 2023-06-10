@@ -1,11 +1,11 @@
 @extends('admin/master')
 @section('content')
-    @isset($success)
+    @if(Session::has('success'))
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{$success}}
+            {{Session::get('success')}}
         </div>
-    @endisset
+    @endif
     <div class="bg-admin">
     <div class="container">
         <div class="row justify-content-center">
@@ -20,8 +20,8 @@
                             @csrf
                             <div class="form-group text-right">
                                 <label for="name">نام دسته‌بندی </label>
-                                <input type="text" class="form-control @error('name') {{'is-invalid'}} @enderror" id="name" name="name">
-                                @error('name')
+                                <input type="text" class="form-control @error('category') {{'is-invalid'}} @enderror" id="name" name="category">
+                                @error('category')
                                 <div id="validationServer03Feedback" class="invalid-feedback">
                                     {{$message}}
                                 </div>
@@ -40,6 +40,22 @@
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-eshop px-5">افزودن</button>
+                            </div>
+                        </form>
+
+                        <h2 class="display-5 text-center my-5">حذف دسته‌بندی </h2>
+                        <form action="{{route('removeCategory')}}" method="POST">
+                            @csrf
+                            <div class="form-group text-right">
+                                <select class="form-control" name="category">
+                                    @foreach($categories as $ctg)
+                                        <option value="{{$ctg->category}}">{{$ctg->category}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-eshop px-5">حذف</button>
                             </div>
                         </form>
                     </div>

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class AdminUserController extends Controller
 {
     function users(){
-        $users=User::all();
+        $users=User::where('admin',0)->get();
         return view('admin/users-management',['users'=>$users]);
     }
 

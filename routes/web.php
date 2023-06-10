@@ -65,7 +65,9 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
     });
 
     Route::controller(AdminCategoryController::class)->group(function(){
+        Route::get('/category','category_view')->name('addCategory.view');
         Route::post('/add-category','add_category')->name('addCategory');
+        Route::post('/remove-category','remove_category')->name('removeCategory');
     });
 
     Route::controller(AdminProductController::class)->group(function(){
@@ -94,7 +96,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin.auth'],function (){
         Route::post('/delivery-remove','delivery_remove')->name('delivery.remove');
     });
 
-    Route::get('/category',function(){return view('admin/add-category');})->name('addCategory.view');
+    // Route::get('/category',function(){return view('admin/add-category');})->name('addCategory.view');
     Route::get('/add-admin',function(){return view('admin/add-admin');})->name('addAdmin.view');
 
 });

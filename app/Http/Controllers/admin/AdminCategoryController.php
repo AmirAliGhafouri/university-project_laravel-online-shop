@@ -9,10 +9,16 @@ use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
 {
-      //__________________________________________ Add category
-      function add_category(Request $req){
+
+    function category_view(){
+        $ctg=category::all();
+        return view('admin/add-category',['categories'=>$ctg]);
+    }
+
+//__________________________________________ Add category
+    function add_category(Request $req){
         $req->validate([
-            'name'=>'required|unique:category',
+            'category'=>'required|unique:category',
             'c_image'=>'required|image'
         ]);
 
@@ -21,16 +27,21 @@ class AdminCategoryController extends Controller
         $ctgname=$file->getClientOriginalName();
         $dstPath=public_path()."/images/category";
         $file->move($dstPath,$ctgname);
-
+        
         //Make Folder
         $img_path=public_path()."/images/products/$req->category";
         File::makeDirectory($img_path);
 
         $newctg= new category;
-        $newctg->category=$req->name;
-        $newctg->image="$ctgname";
+        $newctg->category=$req->category;
+        $newctg->image=$ctgname;
         $newctg->save();
 
-        return view('admin/add-category' , ['success','دسته‌بندی جدید با موفقیت ثبت شد']);
+        return redirect()->route('addCategory.view')->with('success','دسته‌بندی جدید با موفقیت ثبت شد');
+    }
+
+    function remove_category(Request $req){
+        category::where('category',$req->category)->delete();
+        return redirect()->route('addCategory.view')->with('success','دسته‌بندی با موفقیت حذف شد');
     }
 }

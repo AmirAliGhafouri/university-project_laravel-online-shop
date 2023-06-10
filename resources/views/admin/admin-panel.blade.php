@@ -77,7 +77,7 @@
                                <img src="{{URL::asset('images/admin/post.png')}}" alt="post-manager" class="img-fluid">
                            </div>
                            <div>
-                               <p class="text-center py-2">پست</p>
+                               <p class="text-center py-2">مدیریت ارسال</p>
                            </div>
                        </div>
                    </a>
@@ -105,7 +105,7 @@
                                <img src="{{URL::asset('images/admin/admin-category.png')}}" alt="category-manager" class="img-fluid">
                            </div>
                            <div>
-                               <p class="text-center py-2">افزودن دسته‌بندی</p>
+                               <p class="text-center py-2">مدیریت دسته‌بندی</p>
                            </div>
                        </div>
                    </a>
